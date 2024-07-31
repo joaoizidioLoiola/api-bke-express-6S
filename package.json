@@ -1,0 +1,25 @@
+{
+  "name": "api-bke-express-6s",
+  "version": "1.0.0",
+  "description": "Api Node com framework Express desenvolvida no 6º semestre do curso ADS",
+  "main": "src/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joaoizidioLoiola/api-bke-express-6S.git"
+  },
+  "keywords": [
+    "api",
+    "node",
+    "express",
+    "zod"
+  ],
+  "author": "Joao Izidio",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joaoizidioLoiola/api-bke-express-6S/issues"
+  },
+  "homepage": "https://github.com/joaoizidioLoiola/api-bke-express-6S#readme"
+}
