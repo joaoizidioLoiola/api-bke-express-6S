@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "description": "Api Node com framework Express desenvolvida no 6º semestre do curso ADS",
   "main": "src/server.js",
+  "type": "module",
   "scripts": {
     "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -24,6 +26,7 @@
   },
   "homepage": "https://github.com/joaoizidioLoiola/api-bke-express-6S#readme",
   "dependencies": {
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "nodemon": "^3.1.4"
   }
 }
