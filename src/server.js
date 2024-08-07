@@ -8,9 +8,7 @@ app.get('/', (req, res) => {
 
 app.get('/user', (req, res) => {
   res.json({
-    nome: "João",
-    idade: "21",
-    email: "joaoizidioloiola@icloud.com"
+    nome: "João", idade: "21", email: "joaoizidioloiola@icloud.com"
   })
 })
 
