@@ -24,10 +24,8 @@ const postProd = (newProd) => {
   prods.push(newProd);
 }
 
-const editProd = (idProd, updatedData) => {
+const editProd = (idProd) => {
   const index = prods.findIndex(prod => prod.idProd === parseInt(idProd));
-
-
 }
 
 const editNameProd = (idProd, nameProd) => {

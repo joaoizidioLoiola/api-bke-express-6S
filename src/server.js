@@ -11,9 +11,9 @@ app.use(express.json());
 
 app.use('/user', userRouter)
 app.use('/prods', productRouter)
-app.put('/prods', editProd)
-app.post('/prods', createProd)
-app.patch('/prods/:idProd', editNameProd)
+// app.put('/prods', editProd)
+// app.post('/prods', createProd)
+// app.patch('/prods/:idProd', editNameProd)
 
 app.listen(port, () => {
   console.log(`Servidor rodando em http://localhost:${port}`)

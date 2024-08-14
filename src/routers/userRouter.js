@@ -7,11 +7,11 @@ import createUser from "../controllers/user/createUser.js";
 import editNameUser from "../controllers/user/editNameUser.js";
 const router = express.Router();
 
-router.get('/', userById);
 router.get('/list', userList);
+router.get('/:idUser', userById);
 router.post('/', createUser)
 router.put('/', editUser)
-router.patch('/', editNameUser)
-router.delete('/', deleteUser)
+router.patch('/:idUser', editNameUser)
+router.delete('/:idUser', deleteUser)
 
 export default router

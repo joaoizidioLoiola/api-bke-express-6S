@@ -1,0 +1,98 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "user",
+    "collectionId": "241a772a-7ea2-454f-96b9-83583251b58d",
+    "dateExported": "2024-08-14T23:19:13.695Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "d283c1dc-c995-4966-b6b6-092abf03fce3",
+            "colId": "241a772a-7ea2-454f-96b9-83583251b58d",
+            "containerId": "",
+            "name": "/user/list",
+            "url": "{{BASE_URL}}/user/list",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-08-14T23:05:37.344Z",
+            "modified": "2024-08-14T23:05:45.899Z",
+            "headers": []
+        },
+        {
+            "_id": "9bfa3505-d053-4e2d-9bd9-e67dfa424e3f",
+            "colId": "241a772a-7ea2-454f-96b9-83583251b58d",
+            "containerId": "",
+            "name": "/user/",
+            "url": "{{BASE_URL}}/user/1",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-08-14T23:06:11.970Z",
+            "modified": "2024-08-14T23:06:27.350Z",
+            "headers": []
+        },
+        {
+            "_id": "d48ca64c-21e5-48eb-886c-cc1da32e2ab4",
+            "colId": "241a772a-7ea2-454f-96b9-83583251b58d",
+            "containerId": "",
+            "name": "/user",
+            "url": "{{BASE_URL}}/user/",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2024-08-14T23:06:43.408Z",
+            "modified": "2024-08-14T23:07:04.765Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\r\n  \"idUser\": 5,\r\n  \"nameUser\": \"Joao\",\r\n  \"emailUser\": \"joaoizidioloiola@i.com\"\r\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "bc9c414c-965b-40ea-98a0-0e86b88f4676",
+            "colId": "241a772a-7ea2-454f-96b9-83583251b58d",
+            "containerId": "",
+            "name": "/user",
+            "url": "{{BASE_URL}}/user/id",
+            "method": "DELETE",
+            "sortNum": 40000,
+            "created": "2024-08-14T23:07:30.017Z",
+            "modified": "2024-08-14T23:07:51.712Z",
+            "headers": []
+        },
+        {
+            "_id": "d36f285e-fe55-4e92-970e-c4b06f96b09b",
+            "colId": "241a772a-7ea2-454f-96b9-83583251b58d",
+            "containerId": "",
+            "name": "/user",
+            "url": "{{BASE_URL}}/user/2",
+            "method": "PATCH",
+            "sortNum": 50000,
+            "created": "2024-08-14T23:08:10.320Z",
+            "modified": "2024-08-14T23:10:44.821Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\r\n  \"nameUser\": \"Joao NN\"\r\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "331296f1-9b7d-48e7-8bb4-3ba0b775c4d9",
+            "colId": "241a772a-7ea2-454f-96b9-83583251b58d",
+            "containerId": "",
+            "name": "/user",
+            "url": "{{BASE_URL}}/user",
+            "method": "PUT",
+            "sortNum": 60000,
+            "created": "2024-08-14T23:14:37.364Z",
+            "modified": "2024-08-14T23:16:11.956Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\r\n  \"idUser\": 5,\r\n  \"nameUser\": \"Joao NN\",\r\n  \"emailUser\": \"izidiojoao@e.com\"\r\n}",
+                "form": []
+            }
+        }
+    ],
+    "ref": "LYX4KuornS4uc0cW6SRsBE08cyolitFyzJATO0HVFrAEyO1I3NNXzbkP2Bs0TQSjnQcn8l1enBVB3tFzOBgvhA"
+}
