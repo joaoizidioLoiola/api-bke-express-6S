@@ -1,13 +1,13 @@
 import prodModel from "../../models/prodModel.js"
 
-const editNameProd = (req, res) => {
+const editNameProd = async (req, res) => {
   const { idProd } = req.params;
-  const { nameProd } = req.body;
+  const { nomeProd } = req.body;
 
-  if (!idProd || !nameProd) {
+  if (!idProd || !nomeProd) {
     return res.status(400).json({ message: 'ID do produto e novo nome são necessários' });
   }
-  const updatedProd = prodModel.editNameProd(idProd, nameProd);
+  const updatedProd = await prodModel.editNameProd(idProd, nomeProd);
   if (!updatedProd) {
     return res.status(404).json({ message: 'Produto não encontrado' });
   }

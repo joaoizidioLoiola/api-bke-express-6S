@@ -1,12 +1,17 @@
 import prodModel from "../../models/prodModel.js"
 
-const prodById = (req, res) => {
+const prodById = async (req, res) => {
   const { id } = req.params;
-  const prod = prodModel.getProdById(id)
-  if (!prod) {
-    return res.status(404).json({ message: 'Product not found' });
+  try {
+    const prod = await prodModel.getProdById(id);
+    if (!prod) {
+      return res.status(404).json({ message: 'Produto não encontrado' });
+    }
+    res.json(prod);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Internal server error' });
   }
-  res.json(prod);
 }
 
 export default prodById;

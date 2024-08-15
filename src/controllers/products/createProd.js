@@ -1,18 +1,20 @@
 import prodModel from "../../models/prodModel.js"
 
-const createProd = (req, res) => {
-  const { idProd, nameProd, categoria } = req.body;
+const createProd = async (req, res) => {
+  const { idProd, nomeProd, categoria, precoProd } = req.body;
 
-  if (!idProd || !nameProd || !categoria) {
+  if (!idProd || !nomeProd || !categoria || !precoProd) {
     return res.status(400).json({ message: 'Todos os campos são necessários' });
   }
 
   const newProd = {
     idProd,
-    nameProd,
-    categoria
+    nomeProd,
+    categoria,
+    precoProd
   };
-  prodModel.postProd(newProd);
+
+  await prodModel.postProd(newProd);
 
   res.status(201).json({ message: 'Produto adicionado com sucesso', newProd });
 }
