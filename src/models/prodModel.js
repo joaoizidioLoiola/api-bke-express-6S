@@ -2,52 +2,63 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-let prods = [
-  {
-    idProd: 12,
-    nameProd: "CocaCola",
-    categoria: "Refigerante"
-  },
-  {
-    idProd: 10,
-    nameProd: "Rum",
-    categoria: "Bebida Alcóolica"
-  }
-];
 
 const getAllProds = async () => {
-  const prods = await prisma.prods.findMany({
-    select: {
-      idProd: true,
-      nameProd: true,
-      categoria: true
-    }
-  })
+  const prods = await prisma.prod.findMany()
   return prods;
 }
 
-const getProdById = (idProd) => {
-  return prods.find(prod => prod.idProd === parseInt(idProd));
+const getProdById = async (idProd) => {
+  const parsedId = parseInt(idProd);
+  return await prisma.prod.findUnique({
+    where: {
+      idProd: parsedId
+    }
+  });
 }
 
-const postProd = (newProd) => {
-  prods.push(newProd);
+const postProd = async (newProd) => {
+  return await prisma.prod.create({
+    data: {
+      idProd: newProd.idProd,
+      nomeProd: newProd.nomeProd,
+      categoria: newProd.categoria,
+      precoProd: newProd.precoProd
+    }
+  });
 }
 
-const editProd = (idProd) => {
-  const index = prods.findIndex(prod => prod.idProd === parseInt(idProd));
+const editProd = async (idProd, nomeProd, categoria, precoProd) => {
+  return await prisma.prod.update({
+    where: {
+      idProd: parseInt(idProd)
+    },
+    data: {
+      idProd: parseInt(idProd),
+      nomeProd: nomeProd,
+      categoria: categoria,
+      precoProd: precoProd
+    }
+  });
 }
 
-const editNameProd = (idProd, nameProd) => {
-  const prod = getProdById(idProd);
-  if (prod) {
-    prod.nameProd = nameProd;
-  }
-  return prod;
+const editNameProd = async (idProd, nomeProd) => {
+  return await prisma.prod.update({
+    where: {
+      idProd: parseInt(idProd)
+    },
+    data: {
+      nomeProd: nomeProd
+    }
+  });
 }
 
-const deleteProd = (idProd) => {
-  prods = prods.filter(prod => prod.idProd !== parseInt(idProd));
+const deleteProd = async (idProd) => {
+  return await prisma.prod.delete({
+    where: {
+      idProd: parseInt(idProd)
+    }
+  });
 }
 
 export default { getAllProds, getProdById, postProd, editNameProd, deleteProd, editProd }; 

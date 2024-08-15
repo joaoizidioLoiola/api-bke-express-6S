@@ -8,14 +8,15 @@ datasource db {
 }
 
 model user {
-  idUser    Int    @id
-  userName  String @db.VarChar(45)
-  emailUser String @unique(map: "emailUser_UNIQUE") @db.VarChar(45)
-  passUser  String @unique(map: "passUser_UNIQUE") @db.VarChar(45)
+  idUser    Int    @id @default(autoincrement())
+  nameUser  String @db.VarChar(50)
+  emailUser String @unique(map: "email_UNIQUE") @db.VarChar(100)
+  pass      String @unique(map: "password_UNIQUE") @db.VarChar(100)
 }
 
-model prods {
+model prod {
   idProd    Int    @id
-  nameProd  String @db.VarChar(45)
+  nomeProd  String @db.VarChar(45)
   categoria String @db.VarChar(45)
+  precoProd Float  @db.Float
 }

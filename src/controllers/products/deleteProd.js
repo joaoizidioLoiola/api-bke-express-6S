@@ -1,10 +1,10 @@
 import prodModel from "../../models/prodModel.js";
 
-const deleteProd = (req, res) => {
+const deleteProd = async (req, res) => {
 
   const { idProd } = req.params;
 
-  const prod = prodModel.getProdById(idProd);
+  const prod = await prodModel.getProdById(idProd);
   if (!prod) {
     return res.status(404).json({ message: "Produto não encontrado" });
   }
