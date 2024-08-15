@@ -6,7 +6,7 @@ import editNameProd from './controllers/products/editNameProd.js'
 import editProd from './controllers/products/editProd.js'
 
 const app = express()
-const port = 3002
+const port = 3000
 app.use(express.json());
 
 app.use('/user', userRouter)

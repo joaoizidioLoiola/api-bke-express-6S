@@ -1,7 +1,7 @@
 import prodModel from "../../models/prodModel.js"
 
-const prodList = (req, res) => {
-  const prods = prodModel.getAllProds()
+const prodList = async (req, res) => {
+  const prods = await prodModel.getAllProds()
   res.json(prods)
 }
 export default prodList

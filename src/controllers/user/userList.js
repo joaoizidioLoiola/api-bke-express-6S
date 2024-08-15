@@ -1,7 +1,7 @@
 import userModel from "../../models/userModel.js"
 
-const userList = (req, res) => {
-  const users = userModel.getAll()
+const userList = async (req, res) => {
+  const users = await userModel.getAll()
   res.json(users)
 }
 

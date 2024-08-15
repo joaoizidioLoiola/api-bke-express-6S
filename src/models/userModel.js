@@ -1,3 +1,7 @@
+import { PrismaClient } from "@prisma/client";
+
+const prisma = new PrismaClient();
+
 let users = [
   {
     idUser: 1,
@@ -11,8 +15,15 @@ let users = [
   }
 ];
 
-const getAll = () => {
-  return users;
+export const getAll = async () => {
+  const users = await prisma.user.findMany({
+    select: {
+      idUser: true,
+      userName: true,
+      emailUser: true
+    }
+  })
+  return users
 }
 
 const getUserById = (idUser) => {

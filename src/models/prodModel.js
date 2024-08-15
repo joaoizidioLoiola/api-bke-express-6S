@@ -1,3 +1,6 @@
+import { PrismaClient } from "@prisma/client";
+
+const prisma = new PrismaClient();
 
 let prods = [
   {
@@ -12,7 +15,14 @@ let prods = [
   }
 ];
 
-const getAllProds = () => {
+const getAllProds = async () => {
+  const prods = await prisma.prods.findMany({
+    select: {
+      idProd: true,
+      nameProd: true,
+      categoria: true
+    }
+  })
   return prods;
 }
 
