@@ -10,7 +10,7 @@ const router = express.Router();
 router.get('/list', userList);
 router.get('/:idUser', userById);
 router.post('/', createUser)
-router.put('/', editUser)
+router.put('/:idUser', editUser)
 router.patch('/:idUser', editNameUser)
 router.delete('/:idUser', deleteUser)
 

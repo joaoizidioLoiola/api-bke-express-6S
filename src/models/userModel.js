@@ -26,27 +26,58 @@ export const getAll = async () => {
   return users
 }
 
-const getUserById = (idUser) => {
-  return users.find(user => user.idUser === parseInt(idUser));
+
+
+const getUserById = async (idUser) => {
+  return await prisma.user.findUnique({
+    where: {
+      idUser: parseInt(idUser)
+    }
+  });
 }
 
-const postUser = (newUser) => {
-  users.push(newUser);
+const postUser = async (newUser) => {
+  return await prisma.user.create({
+    data: {
+      idUser: newUser.idUser,
+      nameUser: newUser.nameUser,
+      emailUser: newUser.emailUser,
+      pass: newUser.pass
+    }
+  })
 }
 
-const editUser = (idUser) => {
-  const index = users.findIndex(user => user.idUser === parseInt(idUser));
-}
-const editNameUser = (idUser, nameUser) => {
-  const user = getUserById(idUser);
-  if (user) {
-    user.nameUser = nameUser;
-  }
-  return user;
+const editUser = async (idUser, nameUser, emailUser, pass) => {
+  return await prisma.user.update({
+    where: {
+      idUser: parseInt(idUser)
+    },
+    data: {
+      idUser: parseInt(idUser),
+      nameUser: nameUser,
+      emailUser: emailUser,
+      pass: pass
+    }
+  })
 }
 
-const deleteUser = (idUser) => {
-  users = users.filter(user => user.idUser !== parseInt(idUser));
+const editNameUser = async (idUser, nameUser) => {
+  return await prisma.user.update({
+    where: {
+      idUser: parseInt(idUser)
+    },
+    data: {
+      nameUser: nameUser
+    }
+  })
+}
+
+const deleteUser = async (idUser) => {
+  return await prisma.user.delete({
+    where: {
+      idUser: parseInt(idUser)
+    }
+  })
 }
 
 export default { getAll, getUserById, postUser, editUser, deleteUser, editNameUser };
