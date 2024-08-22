@@ -3,7 +3,8 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
+  provider = "postgres"
+  // provider = "mysql"
   url      = env("DATABASE_URL")
 }
 
@@ -15,8 +16,8 @@ model user {
 }
 
 model prod {
-  idProd    Int    @id
-  nomeProd  String @db.VarChar(45)
-  categoria String @db.VarChar(45)
-  precoProd Float  @db.Float
+  idProd    Int     @id
+  nomeProd  String  @db.VarChar(45)
+  categoria String  @db.VarChar(45)
+  precoProd Decimal @db.Decimal
 }
