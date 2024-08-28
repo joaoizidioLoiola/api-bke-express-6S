@@ -39,7 +39,6 @@ const getUserById = async (idUser) => {
 const postUser = async (newUser) => {
   return await prisma.user.create({
     data: {
-      idUser: newUser.idUser,
       nameUser: newUser.nameUser,
       emailUser: newUser.emailUser,
       pass: newUser.pass
