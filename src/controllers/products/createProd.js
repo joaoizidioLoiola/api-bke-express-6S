@@ -1,14 +1,13 @@
 import prodModel from "../../models/prodModel.js"
 
 const createProd = async (req, res) => {
-  const { idProd, nomeProd, categoria, precoProd } = req.body;
+  const { nomeProd, categoria, precoProd } = req.body;
 
-  if (!idProd || !nomeProd || !categoria || !precoProd) {
+  if (!nomeProd || !categoria || !precoProd) {
     return res.status(400).json({ message: 'Todos os campos são necessários' });
   }
 
   const newProd = {
-    idProd,
     nomeProd,
     categoria,
     precoProd
