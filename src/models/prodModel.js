@@ -20,7 +20,6 @@ const getProdById = async (idProd) => {
 const postProd = async (newProd) => {
   return await prisma.prod.create({
     data: {
-      idProd: newProd.idProd,
       nomeProd: newProd.nomeProd,
       categoria: newProd.categoria,
       precoProd: newProd.precoProd

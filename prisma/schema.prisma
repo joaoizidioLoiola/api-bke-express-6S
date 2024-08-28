@@ -16,8 +16,8 @@ model user {
 }
 
 model prod {
-  idProd    Int     @id
+  idProd    Int     @id @default(autoincrement())
   nomeProd  String  @db.VarChar(45)
   categoria String  @db.VarChar(45)
-  precoProd Decimal @db.Decimal
+  precoProd Decimal @db.Decimal(10, 0)
 }

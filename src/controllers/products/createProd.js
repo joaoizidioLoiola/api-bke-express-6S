@@ -6,7 +6,6 @@ const createProd = async (req, res) => {
   if (!nomeProd || !categoria || !precoProd) {
     return res.status(400).json({ message: 'Todos os campos são necessários' });
   }
-
   const newProd = {
     nomeProd,
     categoria,
