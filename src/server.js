@@ -9,6 +9,10 @@ import { PORT, HOST, ENVIRONMENT } from './config.js'
 const app = express()
 app.use(express.json());
 
+app.get('/', (req, res) => {
+  res.json({ message: 'Bem vindo a API de Produtos e Usuários' })
+})
+
 app.use('/user', userRouter)
 app.use('/prods', productRouter)
 
