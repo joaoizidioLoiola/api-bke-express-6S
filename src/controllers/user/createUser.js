@@ -7,13 +7,20 @@ const createUser = async (req, res) => {
     return res.status(400).json({ message: 'Todos os campos são necessários' });
   }
 
+
   const newUser = {
     nameUser,
     emailUser,
     pass
   };
-  await userModel.postUser(newUser);
 
-  res.status(201).json({ message: 'Usuario adicionado com sucesso', newUser });
+  const result = await userModel.postUser(newUser);
+
+  if (!result) {
+    return res.status(500).json({ message: 'Erro ao adicionar usuário' });
+  } else {
+    res.status(201).json({ message: 'Usuario adicionado com sucesso', newUser });
+  }
+
 }
 export default createUser
