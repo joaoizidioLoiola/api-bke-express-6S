@@ -15,10 +15,7 @@ const getProdById = async (idProd) => {
       idProd: parsedId
     },
     include: {
-      user: true,
-      select: {
-        nameUser: true,
-      }
+      user: true
     }
   });
 }
