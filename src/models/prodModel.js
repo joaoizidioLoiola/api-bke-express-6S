@@ -13,6 +13,12 @@ const getProdById = async (idProd) => {
   return await prisma.prod.findUnique({
     where: {
       idProd: parsedId
+    },
+    include: {
+      user: true,
+      select: {
+        nameUser: true,
+      }
     }
   });
 }
