@@ -14,7 +14,7 @@ app.use(express.json());
 //   res.json({ message: 'Bem vindo a API de Produtos e Usuários' })
 // })
 
-app.length('/', welcome)
+app.get('/', welcome)
 app.use('/user', userRouter)
 app.use('/product', productRouter)
 app.use('*', routeNotFounded)
