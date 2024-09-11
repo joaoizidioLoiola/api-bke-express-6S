@@ -7,7 +7,9 @@ import routeNotFounded from './routeNotFounded.js'
 import { PORT, HOST, ENVIRONMENT } from './config.js'
 
 const app = express()
+
 app.use(logger)
+
 app.use(express.json());
 
 // app.get('/', (req, res) => {
