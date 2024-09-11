@@ -13,7 +13,7 @@ const createUser = async (req, res) => {
     pass
   };
 
-  const userValidated = validateUser(newUser);
+  const userValidated = validateUserToCreate(newUser);
 
   if (userValidated?.error) {
     return res.status(400).json({
