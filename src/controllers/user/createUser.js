@@ -1,4 +1,4 @@
-import userModel, { validateUserToCreate } from "../../models/userModel.js";
+import userModel, { validateUserToCreate, validateUser } from "../../models/userModel.js";
 
 const createUser = async (req, res) => {
   const { nameUser, emailUser, pass } = req.body;
@@ -13,13 +13,12 @@ const createUser = async (req, res) => {
     pass
   };
 
-  const userValidated = validateUserToCreate(newUser);
-  console.log(userValidated);
+  const userValidated = validateUser(newUser);
 
   if (userValidated?.error) {
     return res.status(400).json({
       error: "Erro ao criar usuário, verifique os dados",
-      message: userValidated.error.flatten().fieldErrors
+      fieldErrors: userValidated.error.flatten().fieldErrors
     });
   }
 

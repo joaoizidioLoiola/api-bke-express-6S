@@ -3,8 +3,8 @@ generator client {
 }
 
 datasource db {
-  // provider = "mysql"
   provider = "postgresql"
+  // provider = "mysql"
   url      = env("DATABASE_URL")
 }
 
@@ -13,7 +13,6 @@ model user {
   nameUser  String @db.VarChar(50)
   emailUser String @unique(map: "email_UNIQUE") @db.VarChar(100)
   pass      String @unique(map: "password_UNIQUE") @db.VarChar(100)
-  prod      prod[]
 }
 
 model prod {
@@ -22,5 +21,4 @@ model prod {
   categoria String  @db.VarChar(45)
   precoProd Decimal @db.Decimal(10, 0)
   idUser    Int
-  user      user    @relation(fields: [idUser], references: [idUser])
 }

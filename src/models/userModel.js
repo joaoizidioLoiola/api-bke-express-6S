@@ -29,18 +29,18 @@ export const validateUserToCreate = (user) => {
 }
 
 
-let users = [
-  {
-    idUser: 1,
-    nameUser: "Joao Izidio",
-    emailUser: "joaoizidioloiola@icloud.com"
-  },
-  {
-    idUser: 2,
-    nameUser: "Joao",
-    emailUser: "joao@icloud.com"
-  }
-];
+// let users = [
+//   {
+//     idUser: 1,
+//     nameUser: "Joao Izidio",
+//     emailUser: "joaoizidioloiola@icloud.com"
+//   },
+//   {
+//     idUser: 2,
+//     nameUser: "Joao",
+//     emailUser: "joao@icloud.com"
+//   }
+// ];
 
 export const getAll = async () => {
   const users = await prisma.user.findMany({
