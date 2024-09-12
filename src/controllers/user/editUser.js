@@ -1,4 +1,4 @@
-import userModel, { validateUserToCreate } from "../../models/userModel.js";
+import userModel, { validateUserToCreate as ValidateUserToUpdate } from "../../models/userModel.js";
 
 const editUser = async (req, res) => {
   const { idUser } = req.params;
@@ -10,7 +10,7 @@ const editUser = async (req, res) => {
 
   try {
     const updateUser = await userModel.editUser(idUser, nameUser, emailUser, pass);
-    const userValidade = validateUserToCreate(updateUser);
+    const userValidade = ValidateUserToUpdate(updateUser);
 
     if (userValidade?.error) {
       return res.status(400).json({

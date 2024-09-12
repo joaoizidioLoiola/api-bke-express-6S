@@ -18,7 +18,7 @@ app.use(express.json());
 
 app.get('/', welcome)
 app.use('/user', userRouter)
-app.use('/product', productRouter)
+app.use('/prods', productRouter)
 app.use('*', routeNotFounded)
 
 
