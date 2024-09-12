@@ -28,20 +28,6 @@ export const validateUserToCreate = (user) => {
   return partialUserSchema.safeParse(user);
 }
 
-
-// let users = [
-//   {
-//     idUser: 1,
-//     nameUser: "Joao Izidio",
-//     emailUser: "joaoizidioloiola@icloud.com"
-//   },
-//   {
-//     idUser: 2,
-//     nameUser: "Joao",
-//     emailUser: "joao@icloud.com"
-//   }
-// ];
-
 export const getAll = async () => {
   const users = await prisma.user.findMany({
     select: {
@@ -52,8 +38,6 @@ export const getAll = async () => {
   })
   return users
 }
-
-
 
 const getUserById = async (idUser) => {
   return await prisma.user.findUnique({
@@ -107,4 +91,3 @@ const deleteUser = async (idUser) => {
 }
 
 export default { getAll, getUserById, postUser, editUser, deleteUser, editNameUser };
-
