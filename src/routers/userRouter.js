@@ -8,10 +8,10 @@ import editNameUser from "../controllers/user/editNameUser.js";
 const router = express.Router();
 
 router.get('/list', userList);
-router.get('/:idUser', userById);
+router.get('/:id', userById);
 router.post('/', createUser)
-router.put('/:idUser', editUser)
-router.patch('/:idUser', editNameUser)
-router.delete('/:idUser', deleteUser)
+router.put('/:id', editUser)
+router.patch('/:id', editNameUser)
+router.delete('/:id', deleteUser)
 
 export default router

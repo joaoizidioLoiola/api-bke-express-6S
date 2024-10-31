@@ -1,19 +1,24 @@
 import userModel, { validateUserToCreate } from "../../models/userModel.js";
+import { v4 as uuid } from "uuid"
+import bcrypt from "bcrypt"
 
 const createUser = async (req, res) => {
-  const { nameUser, emailUser, pass } = req.body;
+  const { name, email, pass } = req.body;
 
   // if (!nameUser || !emailUser || !pass) {
   //   return res.status(400).json({ message: 'Todos os campos são necessários' });
   // }
 
   const newUser = {
-    nameUser,
-    emailUser,
+    name,
+    email,
     pass
   };
 
   const userValidated = validateUserToCreate(newUser);
+  userValidated.data.public_Id = uuid()
+  userValidated.data.pass = bcrypt.hashSync(userValidated.data.pass, 10)
+
   console.log(userValidated);
 
   if (userValidated?.error) {

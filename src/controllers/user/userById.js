@@ -1,8 +1,8 @@
 import userModel from "../../models/userModel.js";
 
 const userById = async (req, res) => {
-  const { idUser } = req.params;
-  const user = await userModel.getUserById(idUser)
+  const { id } = req.params;
+  const user = await userModel.getUserById(id)
   if (!user) {
     return res.status(404).json({ message: 'Usuario não encontrado' });
   }

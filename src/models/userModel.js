@@ -4,12 +4,12 @@ import { z } from "zod";
 const prisma = new PrismaClient();
 
 const userSchema = z.object({
-  idUser: z.number({ message: "Id deve ser um número inteiro" })
+  id: z.number({ message: "Id deve ser um número inteiro" })
     .positive({ message: "Id deve ser um número positivo" }),
-  nameUser: z.string({ message: "O nome deve ser uma string" })
+  name: z.string({ message: "O nome deve ser uma string" })
     .min(2, { message: "O nome deve ter no mínimo 2 caracteres" })
     .max(50, { message: "O nome deve ter no máximo 50 caracteres" }),
-  emailUser: z.string({ required_error: "O email é obrigatório", invalid_type_error: "O email deve ser uma string" })
+  email: z.string({ required_error: "O email é obrigatório", invalid_type_error: "O email deve ser uma string" })
     .email({ message: "Email invalido" })
     .max(200, { message: "O email deve ter no máximo 200 caracteres" }),
   pass: z.string({ required_error: "A senha é obrigatória", invalid_type_error: "A senha deve ser uma string" })
@@ -23,7 +23,7 @@ export const validateUser = (user) => {
 
 export const validateUserToCreate = (user) => {
   const partialUserSchema = userSchema.partial({
-    idUser: true
+    id: true
   });
   return partialUserSchema.safeParse(user);
 }
@@ -31,12 +31,12 @@ export const validateUserToCreate = (user) => {
 
 let users = [
   {
-    idUser: 1,
+    id: 1,
     nameUser: "Joao Izidio",
     emailUser: "joaoizidioloiola@icloud.com"
   },
   {
-    idUser: 2,
+    id: 2,
     nameUser: "Joao",
     emailUser: "joao@icloud.com"
   }
@@ -45,9 +45,9 @@ let users = [
 export const getAll = async () => {
   const users = await prisma.user.findMany({
     select: {
-      idUser: true,
-      nameUser: true,
-      emailUser: true
+      id: true,
+      name: true,
+      email: true
     }
   })
   return users
@@ -55,10 +55,10 @@ export const getAll = async () => {
 
 
 
-const getUserById = async (idUser) => {
+const getUserById = async (id) => {
   return await prisma.user.findUnique({
     where: {
-      idUser: parseInt(idUser)
+      id: parseInt(id)
     }
   });
 }
@@ -66,42 +66,42 @@ const getUserById = async (idUser) => {
 const postUser = async (newUser) => {
   return await prisma.user.create({
     data: {
-      nameUser: newUser.nameUser,
-      emailUser: newUser.emailUser,
+      name: newUser.name,
+      email: newUser.email,
       pass: newUser.pass
     }
   })
 }
 
-const editUser = async (idUser, nameUser, emailUser, pass) => {
+const editUser = async (id, name, email, pass) => {
   return await prisma.user.update({
     where: {
-      idUser: parseInt(idUser)
+      id: parseInt(id)
     },
     data: {
-      idUser: parseInt(idUser),
-      nameUser: nameUser,
-      emailUser: emailUser,
+      id: parseInt(id),
+      nameUser: name,
+      emailUser: email,
       pass: pass
     }
   })
 }
 
-const editNameUser = async (idUser, nameUser) => {
+const editNameUser = async (id, name) => {
   return await prisma.user.update({
     where: {
-      idUser: parseInt(idUser)
+      id: parseInt(id)
     },
     data: {
-      nameUser: nameUser
+      name: name
     }
   })
 }
 
-const deleteUser = async (idUser) => {
+const deleteUser = async (id) => {
   return await prisma.user.delete({
     where: {
-      idUser: parseInt(idUser)
+      id: parseInt(id)
     }
   })
 }
