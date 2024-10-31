@@ -31,12 +31,12 @@ export const validateUserToCreate = (user) => {
 
 let users = [
   {
-    id: 1,
+    idUser: 1,
     nameUser: "Joao Izidio",
     emailUser: "joaoizidioloiola@icloud.com"
   },
   {
-    id: 2,
+    idUser: 2,
     nameUser: "Joao",
     emailUser: "joao@icloud.com"
   }
@@ -52,8 +52,6 @@ export const getAll = async () => {
   })
   return users
 }
-
-
 
 const getUserById = async (id) => {
   return await prisma.user.findUnique({
@@ -107,4 +105,3 @@ const deleteUser = async (id) => {
 }
 
 export default { getAll, getUserById, postUser, editUser, deleteUser, editNameUser };
-
