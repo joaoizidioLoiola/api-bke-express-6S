@@ -30,6 +30,7 @@
   "homepage": "https://github.com/joaoizidioLoiola/api-bke-express-6S#readme",
   "dependencies": {
     "@prisma/client": "^5.19.1",
+    "cors": "^2.8.5",
     "express": "^4.19.2",
     "nodemon": "^3.1.4",
     "zod": "^3.23.8"
