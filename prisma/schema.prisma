@@ -3,28 +3,16 @@ generator client {
 }
 
 datasource db {
-<<<<<<< HEAD
   provider = "mysql"
-=======
-  provider = "postgresql"
-  // provider = "mysql"
->>>>>>> f84a56aac7a1d7dad7da184b416d800fc2fbb7dc
   url      = env("DATABASE_URL")
 }
 
 model user {
-<<<<<<< HEAD
   id        Int    @id @default(autoincrement())
   public_Id String @unique @db.VarChar(300)
   name      String @db.VarChar(50)
   email     String @unique(map: "email_UNIQUE") @db.VarChar(200)
   pass      String @db.VarChar(256)
-=======
-  idUser    Int    @id @default(autoincrement())
-  nameUser  String @db.VarChar(50)
-  emailUser String @unique(map: "email_UNIQUE") @db.VarChar(100)
-  pass      String @unique(map: "password_UNIQUE") @db.VarChar(100)
->>>>>>> f84a56aac7a1d7dad7da184b416d800fc2fbb7dc
 }
 
 model prod {
@@ -32,11 +20,7 @@ model prod {
   nomeProd  String  @db.VarChar(45)
   categoria String  @db.VarChar(45)
   precoProd Decimal @db.Decimal(10, 0)
-<<<<<<< HEAD
   id        Int
 
   @@index([id], map: "prod_id_fkey")
-=======
-  idUser    Int
->>>>>>> f84a56aac7a1d7dad7da184b416d800fc2fbb7dc
 }
